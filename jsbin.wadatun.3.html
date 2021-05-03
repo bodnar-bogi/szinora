@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2021 by bodnar-bogi (http://jsbin.com/wadatun/3/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+<meta name="description" content="Színóra">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+<style id="jsbin-css">
+#clock {
+  text-align: center;
+}
+
+html, body {
+  height: 100%;
+}
+
+#clock {
+  position: relative;
+  bottom: -20%;
+  	font-family: Merriweather, 'Times New Roman', serif;
+  font-size: 120px;
+  margin-top: 20px;
+}
+
+
+</style>
+</head>
+<body>
+<div id="clock">12:13:14</div>
+ <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Open+Sans&display=swap" rel="stylesheet">
+<script id="jsbin-javascript">
+function colorClock(){
+  var date = new Date();
+
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var seconds = date.getSeconds();
+  var hex1 = 0;
+  var hex2 = 'a';
+
+  if (hours <= 9) {
+    hours = "0" + hours;
+  }
+  if (minutes <= 9) {
+    minutes = "0" + minutes;
+  }
+  if (seconds <= 9) {
+    seconds = "0" + seconds;
+  }
+
+  var i;
+for (i = 0; i <= 9; i++) {
+  hex1=i;
+}
+  var k;
+for (k = 'a'; k <= 'f'; k++) {
+  hex2=k;
+}
+  var clockFace = hours + ':' + minutes + ':' + seconds;
+  var hexColor = '#' + hex1 + hex2 + minutes + seconds;
+
+  document.getElementById('clock').innerHTML = clockFace;
+  document.body.style.background = hexColor;
+
+  setTimeout(function() {
+    colorClock();
+  }, 1000);
+}
+
+colorClock();
+
+
+
+
+
+</script>
+</body>
+</html>
